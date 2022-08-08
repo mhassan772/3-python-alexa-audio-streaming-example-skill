@@ -355,7 +355,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         
         #language_prompts = handler_input.attributes_manager.request_attributes["_"]
         
-        speech_output = "Sorry, I wasn't able to handle your last request. Could you say that again?",
+        speech_output = "Sorry, I wasn't able to handle your last request. Could you say that again?"
         reprompt = "Could you say that again?"
         
         return (
