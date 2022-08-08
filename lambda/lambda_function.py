@@ -40,12 +40,12 @@ STREAMS = [
     "token": '1',
     "url": 'https://quran-station.mantooq.com/myradio.ogg',
     "metadata": {
-      "title": 'Dabble Radio',
-      "subtitle": 'A subtitle for dabble radio',
+      "title": 'quran station',
+      "subtitle": 'quran station',
       "art": {
         "sources": [
           {
-            "contentDescription": 'example image',
+            "contentDescription": 'Quran Station small image',
             "url": 'https://dh3tdfglghd52.cloudfront.net/images/quran-512x512.jpg',
             "widthPixels": 512,
             "heightPixels": 512
@@ -55,7 +55,7 @@ STREAMS = [
       "backgroundImage": {
         "sources": [
           {
-            "contentDescription": 'example image',
+            "contentDescription": 'Quran Station Background Image',
             "url": 'https://dh3tdfglghd52.cloudfront.net/images/quran-1200x800.jpg',
             "widthPixels": 1200,
             "heightPixels": 800
@@ -78,8 +78,9 @@ class CheckAudioInterfaceHandler(AbstractRequestHandler):
             return False
 
     def handle(self, handler_input):
-        language_prompts = handler_input.attributes_manager.request_attributes["_"]
-        speech_output = language_prompts["DEVICE_NOT_SUPPORTED"]
+        #language_prompts = handler_input.attributes_manager.request_attributes["_"]
+        #speech_output = language_prompts["DEVICE_NOT_SUPPORTED"]
+        speech_output = "Sorry, this skill is not supported on this device"
         
         return (
             handler_input.response_builder
@@ -153,8 +154,9 @@ class UnhandledFeaturesIntentHandler(AbstractRequestHandler):
                 )
     
     def handle(self, handler_input):
-        language_prompts = handler_input.attributes_manager.request_attributes["_"]
-        speech_output = random.choice(language_prompts["UNHANDLED"])
+        #language_prompts = handler_input.attributes_manager.request_attributes["_"]
+        #speech_output = random.choice(language_prompts["UNHANDLED"])
+        speech_output = "Sorry, I wasn't able to handle your last request. Could you say that again?"
         return (
             handler_input.response_builder
                 .speak(speech_output)
@@ -169,10 +171,12 @@ class AboutIntentHandler(AbstractRequestHandler):
         return is_intent_name("AboutIntent")(handler_input)
     
     def handle(self, handler_input):
-        language_prompts = handler_input.attributes_manager.request_attributes["_"]
+        #language_prompts = handler_input.attributes_manager.request_attributes["_"]
         
-        speech_output = random.choice(language_prompts["ABOUT"])
-        reprompt = random.choice(language_prompts["ABOUT_REPROMPT"])
+        speech_output = "This is a Quran Station that plays Quran 24 hours."
+        #speech_output = random.choice(language_prompts["ABOUT"])
+        reprompt = "To continue listening say: resume, or say: stop to stop listening."
+        #reprompt = random.choice(language_prompts["ABOUT_REPROMPT"])
         return (
             handler_input.response_builder
                 .speak(speech_output)
@@ -185,9 +189,9 @@ class HelpIntentHandler(AbstractRequestHandler):
         return is_intent_name("AMAZON.HelpIntent")(handler_input)
     
     def handle(self, handler_input):
-        language_prompts = handler_input.attributes_manager.request_attributes["_"]
-        speech_output = random.choice(language_prompts["HELP"])
-        reprompt = random.choice(language_prompts["HELP_REPROMPT"])
+        #language_prompts = handler_input.attributes_manager.request_attributes["_"]
+        speech_output = "This skill plays an audio stream when it is started. It does not have any additional functionality. To start it just say: Alexa, Start Quran Station"
+        reprompt = "To start it just say: Alexa, Start Quran Station"
         
         return (
             handler_input.response_builder
@@ -277,9 +281,9 @@ class FallbackIntentHandler(AbstractRequestHandler):
         return is_intent_name("AMAZON.FallbackIntent")(handler_input)
     
     def handle(self, handler_input):
-        language_prompts = handler_input.attributes_manager.request_attributes["_"]
-        speech_output = random.choice(language_prompts["FALLBACK"])
-        reprompt = random.choice(language_prompts["FALLBACK_REPROMPT"])
+        #language_prompts = handler_input.attributes_manager.request_attributes["_"]
+        speech_output = "Sorry, I didn't understand that. To start the stream say: play."
+        reprompt = "Sorry, I didn't understand that. To start the stream say: play."
         
         return (
             handler_input.response_builder
@@ -349,10 +353,10 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
     def handle(self, handler_input, exception):
         logger.error(exception, exc_info=True)
         
-        language_prompts = handler_input.attributes_manager.request_attributes["_"]
+        #language_prompts = handler_input.attributes_manager.request_attributes["_"]
         
-        speech_output = language_prompts["ERROR"]
-        reprompt = language_prompts["ERROR_REPROMPT"]
+        speech_output = "Sorry, I wasn't able to handle your last request. Could you say that again?",
+        reprompt = "Could you say that again?"
         
         return (
             handler_input.response_builder
