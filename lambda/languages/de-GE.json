@@ -4,11 +4,9 @@
         "Das ist ein Koran-Radio, das den Koran 24/7 spielt"
     ],
     "ABOUT_REPROMPT":[
-        "To continue listening say: resume, or say: stop to stop listening.", 
         "Um die Wiedergabe fortzusetzen, sagen Sie: fortsetzen, oder sagen Sie: stoppen, um die Wiedergabe zu beenden."
     ],
     "HELP": [
-        "To start the radio just say: Alexa start Quran Radio",
         "Um das Radio zu starten, sagen Sie einfach: Alexa öffne Koran Radio"
         
     ],
@@ -16,14 +14,12 @@
         "Um das Radio zu starten, sagen Sie einfach: Alexa öffne Koran Radio"
     ],
     "FALLBACK": [
-        "Sorry, I didn't understand that. To start the stream say: Play.",
         "Entschuldigung, das habe ich nicht verstanden. Um den Stream zu starten, sagen Sie: Alexa öffne Koran Radio."
     ],
     "FALLBACK_REPROMPT": [
         "Entschuldigung, das habe ich nicht verstanden. Um den Stream zu starten, sagen Sie: Alexa öffne Koran Radio."
     ],
     "UNHANDLED":[
-        "This feature isn't supported yet.",
         "Diese Funktion wird noch nicht unterstützt."
     ],
     "DEVICE_NOT_SUPPORTED" : "Dieser Skill wird auf diesem Gerät leider nicht unterstützt",
